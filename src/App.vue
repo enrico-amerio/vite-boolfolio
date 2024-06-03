@@ -11,17 +11,29 @@ import Header from './components/Header.vue';
       }
     },
     methods:{
-      getApi(){
-        axios.get(this.store.apiUrl)
+      getApi(apiUrl, type){
+        axios.get(apiUrl + type  )
           .then(result=>{
-            this.store.projects = result.data;
+            if(type === 'projects'){
+              this.store.projects = result.data;
+
+            }else if(type === 'technologies'){
+              this.store.technologies = result.data;
+
+            }else{
+
+              this.store.types = result.data;
+              console.log(this.store.types );
+            }
           }).catch(error=>{
             console.log('errore');
           });
       }
     },
     mounted(){
-      this.getApi()
+      this.getApi(this.store.apiUrl, 'projects')
+      this.getApi(this.store.apiUrl, 'technologies')
+      this.getApi(this.store.apiUrl, 'types')
     },
     components:{
       Header
