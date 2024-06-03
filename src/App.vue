@@ -2,6 +2,7 @@
 import axios from 'axios';
 import Card from './components/partials/Card.vue';
 import { store } from './data/store'
+import Header from './components/Header.vue';
 
   export default {
     data(){
@@ -22,12 +23,16 @@ import { store } from './data/store'
     mounted(){
       this.getApi()
     },
+    components:{
+      Header
+    }
     
     
   }
 </script>
 
 <template>
+  <Header/>
   <router-view></router-view>
 </template>
 
