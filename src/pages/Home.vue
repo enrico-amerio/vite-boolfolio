@@ -10,7 +10,13 @@ import Card from '@/components/partials/Card.vue';
     },
     components: {
       Card
+    },
+    methods: {
+    getRandomColor() {
+      const colors = ['blue', 'green', 'yellow', 'brown', 'purple', 'orange'];
+      return colors[Math.floor(Math.random() * colors.length)];
     }
+  }
   }
 </script>
  
@@ -22,6 +28,7 @@ import Card from '@/components/partials/Card.vue';
         :title="project.title"
         :type="project.type.name "
         :description="project.description"
+        :color="this.getRandomColor()"
       />
   </div>
   </div>
