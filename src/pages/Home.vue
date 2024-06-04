@@ -29,6 +29,7 @@ import Card from '@/components/partials/Card.vue';
         :type="project.type.name "
         :description="project.description"
         :color="this.getRandomColor()"
+        :id="project.id"
       />
   </div>
   </div>

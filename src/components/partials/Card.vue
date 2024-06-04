@@ -5,6 +5,7 @@
       }
     },
     props:{
+      id: Number,
       title: String,
       type: String,
       description : String,
@@ -19,7 +20,7 @@
           <div class="card card-just-text" data-background="color" :data-color="color" data-radius="none">
               <div class="content">
                   <h6 class="category">Type: {{ type }}</h6>
-                  <h4 class="title">{{ title }}</h4>
+                  <h4 class="title"> <router-link :to="{ name: 'projectInfo', params: { id: id } }">{{ title }}</router-link></h4>
                   <p class="description"><strong>Description: </strong>{{ description }}</p>
               </div>
           </div>
@@ -187,5 +188,8 @@ h6, .h6 {
 
 .content-card {
     margin-top: 30px;
+}
+a:hover{
+  text-decoration: none;
 }
 </style>
